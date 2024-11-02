@@ -17,8 +17,8 @@ services:
   server:
     image: ich0103/cloud-cicd
     container_name: "ide"
-    networks:
-      - kind_network
+    # networks:
+    #   - kind_network
     environment:
       FILE__PASSWORD: /run/secrets/code-server-password
     env_file:
@@ -33,10 +33,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - cloud-cicd-src:/code/cloud-cicd-src
       - vscode:/config
-networks:
-  kind_network:
-    name: kind
-    external: true
+# networks:
+#   kind_network:
+#     name: kind
+#     external: true
 
 volumes:
   cloud-cicd-src:
